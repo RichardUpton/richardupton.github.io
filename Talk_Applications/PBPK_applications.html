@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Physiological Pharmacokinetic Models: Applications</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+  <meta name="date" content="2015-01-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="PBPK_applications_files/ioslides-13.5.1/fonts/fonts.css">
+
+  <link rel="stylesheet" media="all" href="PBPK_applications_files/ioslides-13.5.1/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="PBPK_applications_files/ioslides-13.5.1/theme/css/phone.css">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Physiological Pharmacokinetic Models: Applications',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                favIcon: 'PBPK_applications_files/logo.jpg',
+              },
+
+      // Author information
+      presenters: [
+            {
+        name: 'Richard Upton'
+      },
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(PBPK_applications_files/logo.jpg) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
+  </style>
+
+  <link rel="stylesheet" href="assets\css\slidify.css" type="text/css" />
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides>
+
+  <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="PBPK_applications_files/logo.jpg"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">January 28, 2015</p>
+          </hgroup>
+  </slide>
+
+<slide class=''><hgroup><h2>Some Applications of PBPK models</h2></hgroup><article  id="some-applications-of-pbpk-models">
+
+<p>Examples from my own back catalogue:</p>
+
+<ul>
+<li><p><strong>Interspecies scaling</strong><br/>Using animal data in a human model</p></li>
+<li><p><strong>Drugs that affect blood flow</strong><br/>Intravenous Magnesium</p></li>
+<li><p><strong>Drugs that have a &quot;target&quot; organ</strong><br/>Propofol (Intravenous anaesthetic)</p></li>
+<li><p><strong>First-pass metabolites</strong> Leflunomide/Teriflunomide (RA)</p></li>
+<li><p><strong>Effect of physiological changes/pathology</strong><br/>Predict the effect of aging on fentanyl kinetics</p></li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Interspecies scaling</h2></hgroup><article  id="interspecies-scaling">
+
+</article></slide><slide class=''><hgroup><h2>First in Man: Animal to Human</h2></hgroup><article  id="first-in-man-animal-to-human">
+
+<p>Typically mice, rats, dogs to man</p>
+
+<p><strong>Compartmental models</strong><br/>Scale volumes and clearances using allometric principles<br/>Doesn&#39;t take into account differences in body composition<br/>&quot;Blurring&quot; of clearance &amp; volume (distribution or absorption masked as clearance)</p>
+
+<p><strong>PBPK models</strong><br/>Define model as physiological and pharmacological parameters<br/>&quot;Swap&quot; the physiological parameters for a new species<br/>Keep the pharmacological parameters the same<br/>(or vice versa for predicting a new drug in the same species!)</p>
+
+</article></slide><slide class=''><hgroup><h2>PBPK model parameters</h2></hgroup><article  id="pbpk-model-parameters">
+
+<p><strong>Physiological</strong><br/>Organ size/volume<br/>Organ blood flow<br/>Organ composition (e.g. lipid content)<br/>Organ enzyme contents<br/>Haematocrit/plasma protein concentrations</p>
+
+<p><strong>Pharmacological</strong><br/>Partition coefficient<br/>Free fraction<br/>Kb values (binding)</p>
+
+<p>Extraction ratio<br/>Km values (enyzmes)<br/>Intrinsic clearance</p>
+
+</article></slide><slide class=''><hgroup><h2>The Standard Sheep</h2></hgroup><article  id="the-standard-sheep">
+
+<p>Example of physiological data from the literature</p>
+
+<center>
+
+<img src='images/standard_sheep_table.png' title=''/>
+
+</center>
+
+<h4>
+
+Upton, J Pharmacol Toxicol Methods 2008; 58:198-205
+
+</h4>
+
+
+
+</article></slide><slide class=''><hgroup><h2>The Standard Pig</h2></hgroup><article  id="the-standard-pig">
+
+<Center>
+
+<img src='images/standard_pig_table.png' title=''/>
+
+</center>
+
+<h4>
+
+Upton, J Pharmacol Toxicol Methods 2008; 58:198-205
+
+</h4>
+
+
+
+
+</article></slide><slide class=''><hgroup><h2>Scaling body composition</h2></hgroup><article  id="scaling-body-composition">
+
+<p>Body composition varies with species<br/><br> <strong>Sheep vs Pig</strong></p>
+
+<p><em>Standard sheep</em><br/>17% fat and 28% muscle<br/>Liver blood flow is 47% of cardiac output</p>
+
+<p><em>Standard pig</em><br/>30% fat and 40% muscle<br/>Liver blood flow is 30% of cardiac output</p>
+
+</article></slide><slide class=''><hgroup><h2>Scaling size within a species</h2></hgroup><article  id="scaling-size-within-a-species">
+
+<p>Animals come in different sizes, even within a species</p>
+
+<p>To generate a simulated population:<br/><em>1. Assume % body composition is the same</em><br/><em>2. Scale organ size relative to the standard size</em></p>
+
+<div style="font-size: 90%; color: black">
+\[
+    {\sf OrganSize_{i} = OrganSize_{std}* \left( \frac{Weight_{i}}{Weight_{std}} \right)^1*N\left(1,0.08^2 \right)\\  }
+    {\sf OrganFlow_{i} = OrganFlow_{std}* \left( \frac{Weight_{i}}{Weight_{std}} \right)^{0.75}*N\left(1,0.15^2 \right) } \\  
+\]</div>
+
+<h4>
+
+Upton, J Pharmacol Toxicol Methods 2008; 58:198-205
+
+</h4>
+
+
+
+
+</article></slide><slide class=''><hgroup><h2>Scaling organ distribution</h2></hgroup><article  id="scaling-organ-distribution">
+
+<p>Consider a membrane-limited model<br/>Measured apparent distribution volumes (V<sub>app</sub>), permeabilty (PS) and blood flow (Q)</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Animal</th>
+<th align="left"></th>
+<th align="left">Man</th>
+</tr>
+<tr class="odd">
+<td align="left">Dimensioned</td>
+<td align="left">Dimensionless</td>
+<td align="left">Dimensioned</td>
+</tr>
+<tr class="even">
+<td align="left">V<sub>app,a</sub> (L)</td>
+<td align="left">R = V<sub>app,a</sub>/V<sub>real,a</sub></td>
+<td align="left">V<sub>app,m</sub> = R.V<sub>real,m</sub> (L)</td>
+</tr>
+<tr class="odd">
+<td align="left">PS<sub>a</sub> (L/min)</td>
+<td align="left">PSQ = PS<sub>a</sub>/Q<sub>a</sub></td>
+<td align="left">PS<sub>m</sub> = PSQ.Q<sub>m</sub> (L/min)</td>
+</tr>
+</table>
+
+</article></slide><slide class=''><hgroup><h2>Scaling organ elimination</h2></hgroup><article  id="scaling-organ-elimination">
+
+<p>Measured organ clearance (CL) blood flow (Q)<br/><br></p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Animal</th>
+<th align="left"></th>
+<th align="left">Man</th>
+</tr>
+<tr class="odd">
+<td align="left">Dimensioned</td>
+<td align="left">Dimensionless</td>
+<td align="left">Dimensioned</td>
+</tr>
+<tr class="even">
+<td align="left">CL<sub>a</sub> (L/min)</td>
+<td align="left">E = CL<sub>a</sub>/Q<sub>a</sub></td>
+<td align="left">CL<sub>m</sub> = E.Q<sub>m</sub> (L/min)</td>
+</tr>
+</table>
+
+</article></slide><slide class=''><hgroup><h2>A recirculatory model of fentanyl in man</h2></hgroup><article  id="a-recirculatory-model-of-fentanyl-in-man" class="flexbox vcenter">
+
+<img src='images/fentanyl_recirculatory.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Scaling membrane limited distribution</h2></hgroup><article  id="scaling-membrane-limited-distribution" class="flexbox vcenter">
+
+<img src='images/fentanyl_man_parameters.png' title=''/>
+
+<h4>
+
+Upton et al., J Pharmacokinetic Pharmacodyn 2012; 39: 561-76
+
+</h4>
+
+
+
+
+</article></slide><slide class=''><hgroup><h2>A recirculatory model of fentanyl in man</h2></hgroup><article  id="a-recirculatory-model-of-fentanyl-in-man-1" class="flexbox vcenter">
+
+<img src='images/fentanyl_recirculatory_table.png' title=''/>
+
+<h4>
+
+Upton et al., J Pharmacokinetic Pharmacodyn 2012; 39: 561-76
+
+</h4>
+
+
+
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Drugs that affect blood flow</h2></hgroup><article  id="drugs-that-affect-blood-flow">
+
+</article></slide><slide class=''><hgroup><h2>Intravenous Magnesium</h2></hgroup><article  id="intravenous-magnesium">
+
+<p><br></p>
+
+<p>Used for a number of diseases, including preeclampsia</p>
+
+<p>Relaxes smooth muscles in blood vessels</p>
+
+<ul>
+<li>Lowers systemic vascular resistance<br/></li>
+<li>Decreases mean arterial blood pressure<br/></li>
+<li>Increases in cardiac output</li>
+</ul>
+
+<p>Dosing is often empirical, based on observed cardiovascular variables</p>
+
+</article></slide><slide class=''><hgroup><h2>Magnesium Pharmacokinetics</h2></hgroup><article  id="magnesium-pharmacokinetics">
+
+<p><br> The clearance of magnesium is renal, but it can be reabsorbed or excreted in the tubules, as dictated by homeostatic requirements</p>
+
+<p>Predominant loss from blood is by cellular uptake. This occurs in all tissues, and is potentially blood flow (cardiac output) dependent</p>
+
+<center>  
+
+<strong>The PK of Mg affects the PD</strong><br/><br> <strong>The PD of Mg affects the PK</strong><br/>
+
+</center>  
+
+
+
+
+</article></slide><slide class=''><hgroup><h2>A Study of Magnesium in Sheep</h2></hgroup><article  id="a-study-of-magnesium-in-sheep">
+
+<p>A chronically instrumented sheep preparation</p>
+
+<p>Training data set (30 mmol over 2 min)</p>
+
+<p>Arterial blood samples for PK</p>
+
+<p><strong>Cardiovascular measurements</strong><br/>LVEDP - Left ventricular end diastolic pressure<br/>MAP - Mean arterial blood pressure<br/>SVR - Systemic vascular resistance<br/>CO - Cardiac output<br/>HR - Heart Rate<br/>SV - Stroke Volume<br/>CNT - Contractility</p>
+
+</article></slide><slide class=''><hgroup><h2>Magnesium - Observed data</h2></hgroup><article  id="magnesium---observed-data" class="flexbox vcenter">
+
+<p>3 = baseline; 2 = baseline/2; 4 = baseline.2</p>
+
+<img src='images/Mg_rawdata.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Magnesium - PD model</h2></hgroup><article  id="magnesium---pd-model" class="flexbox vcenter">
+
+<p>A simple model of the cardiovascular system<br/>Two &quot;stressed&quot; blood volumes, active pump, passive return</p>
+
+<img src='images/Mg_PD_model.png' title=''/>
+
+<h4>
+
+Upton &amp; Ludbrook, BMC Pharmacology 2005; 5:5, 10 Mar
+
+</h4>
+
+
+</article></slide><slide class=''><hgroup><h2>Magnesium - PK model</h2></hgroup><article  id="magnesium---pk-model" class="flexbox vcenter">
+
+<p>A 2 compartment recirculatory model with CO as a parameter<br/>Distribution into intracellular stores (PS)</p>
+
+<img src='images/Mg_PK_model.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Magnesium - PKPD model</h2></hgroup><article  id="magnesium---pkpd-model" class="flexbox vcenter">
+
+<p>Feedback between the PK and PD models via link functions</p>
+
+<img src='images/Mg_PKPD_model.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Magnesium - Observed vs Fitted</h2></hgroup><article  id="magnesium---observed-vs-fitted" class="flexbox vcenter">
+
+<img src='images/Mg_results.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Magnesium - Validation data</h2></hgroup><article  id="magnesium---validation-data" class="flexbox vcenter">
+
+<p>Prediction of a validation data set (30 mmol over 5 min)</p>
+
+<img src='images/Mg_validation.png' title=''/>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Drugs with &quot;target&quot; organs</h2></hgroup><article  id="drugs-with-target-organs">
+
+</article></slide><slide class=''><hgroup><h2>Propofol</h2></hgroup><article  id="propofol">
+
+<ul>
+<li>Intravenous anaesthetic<br/></li>
+<li>GABA agonist (and other receptors)<br/></li>
+<li>Depression of neuronal activity evident in the EEG<br/></li>
+<li>Propofol concentration in the CNS determines the time-course of anaesthesia</li>
+</ul>
+
+<p><br> Why not include the target organ in a model of propofol kinetics?</p>
+
+<br>
+
+<h4>
+
+Upton &amp; Ludbrook, Anesthesiology 2005; 103:344-52<br/>
+
+</h4>
+
+
+
+
+</article></slide><slide class=''><hgroup><h2>Propofol - Recirculatory Model</h2></hgroup><article  id="propofol---recirculatory-model" class="flexbox vcenter">
+
+<img src='images/propofol_recirculatory.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Propofol - Lung Sub-model</h2></hgroup><article  id="propofol---lung-sub-model">
+
+<p>ICG = concurrent intra-vascular marker</p>
+
+<center>
+
+<img src='images/propofol_lung_data.png' title=''/><br/>
+
+</center>
+
+
+
+</article></slide><slide class=''><hgroup><h2>Propofol - Lung Sub-model</h2></hgroup><article  id="propofol---lung-sub-model-1">
+
+<p>Flow = Cardiac output (Q<sub>co</sub>)<br/>Input = Pulmonary artery (C<sub>pa</sub>); Output = Aorta (C<sub>art</sub>)</p>
+
+<br>
+
+<center>
+
+<img src='images/propofol_lung_model.png' title=''/><br/>
+
+</center>
+
+
+
+</article></slide><slide class=''><hgroup><h2>Propofol - Brain Sub-model</h2></hgroup><article  id="propofol---brain-sub-model">
+
+<p>Input = Aorta (C<sub>art</sub>); Output = Jugular bulb (C<sub>jug</sub>)<br/>BIS = Depth of anaesthesia</p>
+
+<center>
+
+<img src='images/propofol_brain_data.png' title=''/><br/>
+
+</center>
+
+
+
+</article></slide><slide class=''><hgroup><h2>Propofol - Brain Sub-model</h2></hgroup><article  id="propofol---brain-sub-model-1">
+
+<p>Membrane limited model<br/>Feedback effect on cerebral blood flow</p>
+
+<center>
+
+<img src='images/propofol_brain_model.png' title=''/><br/>
+
+</center>
+
+
+
+</article></slide><slide class=''><hgroup><h2>Standard Man to Population model</h2></hgroup><article  id="standard-man-to-population-model">
+
+<p>This was NOT a population model!<br/>Mean data, Standard Man physiology<br/>Fitting in MATLAB &amp; Simulink<br/>Can you predict a population? Maybe&#8230;</p>
+
+<div style="font-size: 70%; color: black">
+\[
+     {\sf CO_{i} = 5.66* \left( \frac{Weight_{i}}{70} \right)^{0.41} * \left( 1.03 + 0.0295*\left( Age/30 \right)  + 0.0603*\left( Age/30 \right)^2 \right) }  \\ 
+ {\sf OrganSize_{i} = OrganSize_{std}* \left( \frac{Weight_{i}}{70} \right)^1 } \\       
+\]</div>
+
+<p>Now predict arterial propofol concentrations for an extensive database of real patients!</p>
+
+</article></slide><slide class=''><hgroup><h2>The harsh reality</h2></hgroup><article  id="the-harsh-reality">
+
+&quot;Performance of compartmental and physiologically-based, recirculatory pharmacokinetic models for propofol &quot;<br/>
+
+<center>
+
+<img src='images/masui_propofol_predictions.png' title=''/>
+
+</center>
+
+<h4>
+
+Masui et al., Anesthesia and Analgesia 2010; 111: 368-79
+
+</h4>
+
+
+
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Oral dose first-pass metabolites</h2></hgroup><article  id="oral-dose-first-pass-metabolites">
+
+</article></slide><slide class=''><hgroup><h2>Leflunomide/Teriflunomide</h2></hgroup><article  id="leflunomideteriflunomide">
+
+<p>undetectable parent, first-pass metabolism, blood-borne metabolism, extensive protein binding, entero-hepatic recycling, genetic influence on transporters &amp; CYP&#39;s</p>
+
+<center>
+
+<img src='images/Ash_leflunomide.png' title=''/>
+
+<h4>
+
+Hopkins et al., 2015, under review<br/>
+
+</h4>
+</center>
+
+
+
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Effect of physiological changes/pathology</h2></hgroup><article  id="effect-of-physiological-changespathology">
+
+</article></slide><slide class=''><hgroup><h2>Fentanyl in the elderly</h2></hgroup><article  id="fentanyl-in-the-elderly">
+
+<p>You are a pharmacologist working in an Anaesthetic Department</p>
+
+<p><strong>What happens to the kinetics of fentanyl in the elderly?</strong><br/><strong>Why do you need 1/4 of the dose of a fit young person?</strong></p>
+
+<p>The literature has no published model of fentanyl in the elderly</p>
+
+<p>From first principles, what happens to drug kinetics when people age?</p>
+
+</article></slide><slide class=''><hgroup><h2>Physiology of aging</h2></hgroup><article  id="physiology-of-aging" class="flexbox vcenter">
+
+<img src='images/ageing_table.png' title=''/>
+
+<h4>
+
+MacIntyre, Clinical Pain Management-Acute, Edward Arnold, 2002 pp 463.<br/>
+
+</h4>
+
+
+</article></slide><slide class=''><hgroup><h2>Modify this model for the elderly!</h2></hgroup><article  id="modify-this-model-for-the-elderly" class="flexbox vcenter">
+
+<img src='images/Fentanyl_3comp.png' title=''/>
+
+</article></slide><slide class=''><hgroup><h2>Modify this model for the elderly?</h2></hgroup><article  id="modify-this-model-for-the-elderly-1">
+
+<center>
+
+<img src='images/Fentanyl_PBPK.png' title=''/><br/>
+
+</center>
+
+<h4>
+
+Bjorkman, J Pharmacokinet Biopharm. 1994; 22:381-410.<br/>
+
+</h4>
+
+
+
+
+</article></slide><slide class=''><hgroup><h2>Conclusions</h2></hgroup><article  id="conclusions">
+
+<p>Investigate models beyond the 1, 2 &amp; 3 compartment mamillary</p>
+
+<p>Make some (informed!) assumptions, or use data beyond arm venous plasma concentrations</p>
+
+<p>Old data/papers may be valuable pieces of the puzzle</p>
+
+<p>Learn software to solve differential equations</p>
+
+<p>There is more work to do. For example, how reliable is this equation for fit, healthy adults?</p>
+
+<div style="font-size: 100%; color: black">
+\[
+     {\sf LiverFlow_{i} = 1.5* \left( \frac{Weight_{i}}{70} \right)^{0.75}* \left( \frac{Age_{i}}{30} \right)^{x} } \\  
+\]</div>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>The End</h2></hgroup><article  id="the-end"></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script src="PBPK_applications_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+<script src="PBPK_applications_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+<script src="PBPK_applications_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+<script src="PBPK_applications_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+<script src="PBPK_applications_files/ioslides-13.5.1/js/hammer.js"></script>
+<script src="PBPK_applications_files/ioslides-13.5.1/js/slide-controller.js"></script>
+<script src="PBPK_applications_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "PBPK_applications_files/mathjax-2.3.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
